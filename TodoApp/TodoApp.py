@@ -61,6 +61,11 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.ui = MainWindowUI()
         self.ui.setupUi(self)
+        # Check for required UI attributes
+        required_attrs = ['todoView', 'addButton', 'deleteButton', 'completeButton', 'todoEdit']
+        for attr in required_attrs:
+            if not hasattr(self.ui, attr):
+                raise AttributeError(f"UI file is missing required widget: '{attr}'")
         self.model = TodoModel()
         self.ui.todoView.setModel(self.model)
         # Connect buttons to their respective methods
