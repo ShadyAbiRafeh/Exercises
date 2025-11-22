@@ -89,7 +89,6 @@ class MainWindow(QMainWindow):
             index = indexes[0]
             self.model.complete(index.row())
             self.ui.todoView.clearSelection()
-
 app = QApplication([])
 window = MainWindow()
 window.show()
